@@ -1,0 +1,9 @@
+# TIER 1 — HVAC. Strongest home-service analog to dental.
+# Ticket $5-15k | no heat in January = they call until someone answers
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/hvac.txt --city "Mississauga, ON" --depth 5
+hvac contractor
+furnace repair
+emergency furnace repair
+air conditioning repair
+heating contractor
+hvac installation

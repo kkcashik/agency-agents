@@ -1,0 +1,30 @@
+# GTA slices — run each niche file against these ONE AT A TIME.
+#
+# WHY SLICE: Google Maps caps how many results a single query returns. Eight runs at
+# "North York" / "Scarborough" / "Etobicoke" etc. return far more total businesses than
+# one run at "Toronto" with the same depth. Slice the map, don't raise the depth.
+#
+# This is a REFERENCE LIST, not a keywords file. Pass one line at a time to --city:
+#   python3 scripts/scrape.py --keywords-file examples/niches/hvac.txt --city "Markham, ON" --depth 5
+#
+# Toronto proper
+Toronto, ON
+North York, ON
+Scarborough, ON
+Etobicoke, ON
+East York, ON
+# 905 belt — west
+Mississauga, ON
+Brampton, ON
+Oakville, ON
+Burlington, ON
+Hamilton, ON
+# 905 belt — north
+Markham, ON
+Richmond Hill, ON
+Vaughan, ON
+# 905 belt — east
+Pickering, ON
+Ajax, ON
+Whitby, ON
+Oshawa, ON

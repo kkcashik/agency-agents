@@ -1,0 +1,9 @@
+# TIER 2 — Allied health. Dense in the GTA, insurance-billed, repeat visits.
+# Ticket $80-200/visit but high LTV | no-shows are their #1 leak
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/health-clinics.txt --city "North York, ON" --depth 5
+chiropractor
+physiotherapy clinic
+massage therapy
+registered massage therapist
+naturopath
+walk-in clinic

@@ -1,0 +1,9 @@
+# TIER 1 — Med spa / aesthetics. Easiest "yes" on automation.
+# Ticket $500-3k | high no-show rate, reminders alone justify the retainer
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/medspa.txt --city "Toronto, ON" --depth 5
+med spa
+medical spa
+botox clinic
+laser hair removal
+skin clinic
+cosmetic clinic

@@ -1,0 +1,8 @@
+# TIER 2 — Auto. Phone-heavy, collision work is high ticket.
+# Ticket $300-8k | insurance-driven, customers call while stranded
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/auto.txt --city "Scarborough, ON" --depth 5
+auto repair shop
+collision repair
+auto body shop
+mechanic
+tire shop

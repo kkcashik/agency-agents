@@ -1,0 +1,8 @@
+# TIER 1 — Law firms. Biggest ticket, longest sales cycle.
+# Ticket $5k+ per case | already spending on ads, notorious for missed calls
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/legal.txt --city "Toronto, ON" --depth 5
+personal injury lawyer
+family lawyer
+immigration lawyer
+real estate lawyer
+employment lawyer

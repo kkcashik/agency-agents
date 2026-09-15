@@ -1,0 +1,9 @@
+# TIER 1 — Plumbing. The purest after-hours case.
+# Ticket $300-5k | flood at 11pm, first answer wins the job
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/plumbing.txt --city "Scarborough, ON" --depth 5
+plumber
+emergency plumber
+24 hour plumber
+drain cleaning
+water heater repair
+plumbing contractor

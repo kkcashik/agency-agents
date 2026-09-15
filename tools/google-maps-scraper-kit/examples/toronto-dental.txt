@@ -1,6 +1,8 @@
 # Toronto dental clinic lead list — one keyword per line. Lines starting with # are ignored.
 # Run:  python3 scripts/scrape.py --keywords-file examples/toronto-dental.txt --city "Toronto, ON" --depth 5
 # Tip: run neighbourhoods one job at a time rather than all of these at once.
+# NOTE: examples/niches/dental.txt is the reusable version — no location baked in,
+# so it works with --city for any GTA city. See NICHES.md.
 dentists in Toronto ON
 dental clinics in Toronto ON
 family dentist in Toronto ON

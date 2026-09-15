@@ -1,0 +1,11 @@
+# TIER 1 — Dental. Highest fit for the AI Receptionist offer.
+# Ticket $200-3k+ | phone-booked | CDCP surge eats front-desk time
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/dental.txt --city "North York, ON" --depth 5
+dentist
+dental clinic
+family dentist
+emergency dentist
+orthodontist
+pediatric dentist
+denturist
+periodontist

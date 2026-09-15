@@ -1,0 +1,9 @@
+# TIER 2 — Home services. Storm/season-driven surges.
+# Ticket $500-20k | quote-appointment model, lead response time decides the win
+# Run: python3 scripts/scrape.py --keywords-file examples/niches/home-services.txt --city "Brampton, ON" --depth 5
+roofing contractor
+electrician
+emergency electrician
+garage door repair
+appliance repair
+landscaping company
