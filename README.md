@@ -499,6 +499,21 @@ Each agent is designed with:
 
 ---
 
+## 🧰 Tools
+
+Beyond the agent roster, `tools/` holds self-contained utilities the agency uses day to day.
+
+- **[`tools/google-maps-scraper-kit/`](tools/README.md)** — a free, local Google Maps scraper (Docker) that Claude can drive. Give it a city + business type, get a clean lead list (name, phone, email, website, category, address, rating, reviews). Wraps [`gosom/google-maps-scraper`](https://github.com/gosom/google-maps-scraper) (MIT).
+
+```bash
+cd tools/google-maps-scraper-kit && docker compose up -d
+python3 scripts/scrape.py "dentists in Toronto ON" --city "Toronto, ON" --depth 5
+```
+
+See **[tools/README.md](tools/README.md)** for the full start guide and safety notes.
+
+---
+
 ## 🔌 Multi-Tool Integrations
 
 The Agency works natively with Claude Code, and ships conversion + install scripts so you can use the same agents across every major agentic coding tool.
