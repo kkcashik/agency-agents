@@ -1,0 +1,11 @@
+# Toronto dental clinic lead list — one keyword per line. Lines starting with # are ignored.
+# Run:  python3 scripts/scrape.py --keywords-file examples/toronto-dental.txt --city "Toronto, ON" --depth 5
+# Tip: run neighbourhoods one job at a time rather than all of these at once.
+dentists in Toronto ON
+dental clinics in Toronto ON
+family dentist in Toronto ON
+dentists in North York ON
+dentists in Scarborough ON
+dentists in Etobicoke ON
+dentists in East York ON
+dentists in Mississauga ON
