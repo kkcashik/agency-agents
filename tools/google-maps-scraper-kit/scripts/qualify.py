@@ -13,10 +13,16 @@ Three buckets, per NICHES.md:
 Everything else is dropped: under 10 reviews (too new, no money) and 4.0+ with a big review
 count (already has an agency, or doesn't think they need one).
 
+The source argument may be a glob (results-*.csv); the newest match is used. This is resolved
+here rather than by the shell because PowerShell does not expand globs into arguments the way
+bash does, so Windows users would otherwise get a "file not found" on the literal pattern.
+
 Stdlib only — no pip install. Uses the csv module rather than awk/grep because addresses
 contain commas and would break naive line splitting.
 """
 import csv
+import glob
+import os
 import sys
 
 BUCKETS = {
@@ -46,10 +52,31 @@ def bucket(row):
     return None
 
 
+def resolve(pattern):
+    """Accept a literal path or a glob; return the newest match.
+
+    PowerShell passes globs through unexpanded, so 'results-*.csv' arrives here as-is.
+    Handle it the same way on every platform rather than telling Windows users to type
+    the full uuid filename.
+    """
+    if os.path.isfile(pattern):
+        return pattern
+    matches = glob.glob(pattern)
+    if not matches:
+        sys.exit(
+            f"✗ No file matching '{pattern}'.\n"
+            "  Run a scrape first, or check the filename with: dir results-*.csv  (ls on Mac/Linux)"
+        )
+    newest = max(matches, key=os.path.getmtime)
+    if len(matches) > 1:
+        print(f"ℹ {len(matches)} files matched; using the newest: {newest}\n")
+    return newest
+
+
 def main():
     if len(sys.argv) < 2:
-        sys.exit("usage: python3 scripts/qualify.py results-<id>.csv")
-    src = sys.argv[1]
+        sys.exit("usage: python scripts/qualify.py results-<id>.csv")
+    src = resolve(sys.argv[1])
     out = sys.argv[2] if len(sys.argv) > 2 else "qualified.csv"
 
     with open(src, newline="", encoding="utf-8") as f:

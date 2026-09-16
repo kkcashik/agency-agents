@@ -24,6 +24,22 @@ python3 scripts/scrape.py "dentists in Toronto ON" --city "Toronto, ON" --depth 
 …or open Claude Code **inside that folder** (`claude`) so its skill, `/scrape` commands and
 pre-approved permissions load, and just say *"scrape dentists in North York, Toronto."*
 
+## Windows users
+
+Use **PowerShell** and swap two things in every command below:
+
+| Mac/Linux | Windows |
+|---|---|
+| `python3 scripts/...` | `py scripts/...` |
+| `curl http://...` | `curl.exe http://...` |
+
+`python3` isn't a command on Windows — it opens the Microsoft Store. `curl` in PowerShell is
+an alias for `Invoke-WebRequest`, which prints an object instead of JSON; `curl.exe` is the
+real one and ships with Windows 10+.
+
+Docker Desktop must be **open and running** (WSL2 backend) before `docker compose up -d`.
+`scripts/scrape.sh` is bash-only — use `scrape.py` instead; it does more anyway.
+
 ## Which niche to scrape
 
 Nine ready-to-run keyword packs ship in
