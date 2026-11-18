@@ -2,8 +2,8 @@
 Usage: python3 mux.py 83|35   (needs vo/a1..a11.mp3 for 83, vo/b1..b6.mp3 for 35)"""
 import subprocess,sys,os
 mode=sys.argv[1]
-cfg={'83':('a',[.8,8.3,16.4,23.4,30.4,38.4,45.4,53.4,60.4,69.5,77.6],[7,7.5,6.5,6.5,7.5,6.5,7.5,6.5,8,7.5,5.4],'../out/northai-full-loop-83s.mp4'),
-     '35':('b',[.8,6.3,12.5,20.4,28.4,32.3],[5,5.5,7,7,3.5,2.6],'../out/northai-full-loop-35s.mp4')}
+cfg={'83':('a',[.8,8.3,16.4,23.2,30.4,38.4,45.4,53.4,60.4,69.2,77.6],[7,7.6,6.5,7.0,7.5,6.5,7.5,6.8,8.4,7.9,5.0],'../out/northai-full-loop-83s.mp4'),
+     '35':('b',[.8,6.2,12.5,20.4,28.4,32.4],[5,6.1,7,7.5,3.9,2.6],'../out/northai-full-loop-35s.mp4')}
 pre,starts,maxd,vid=cfg[mode]
 def dur(f):return float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f]).strip())
 ins=[];fl=[]
