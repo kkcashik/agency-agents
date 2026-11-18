@@ -173,8 +173,25 @@ function sceneTrigger(S,o){
   S.add('mono','21:19',{left:'700px',top:'790px',fontSize:'30px',color:'var(--slate)',fontWeight:'400'},2.0,{d:.5});
   S.cap('Somebody needs a dentist <b>tonight.</b>',1.2);
 }
-function sceneFound(S,o){
+
+function sceneTraffic(S,o){
+  const k=o.k||1, a=x=>x*k;
   S.hl('First they have<br>to <em>find</em> you.',.2,{size:56,top:440});
+  const items=[['Ads management','We build and tune them weekly. Budget goes where patients are searching.'],['Google Business Profile','Photos, services, hours, review replies — kept sharp.'],['Local SEO','A page for every treatment and neighbourhood.'],['AEO · AI answers','So ChatGPT, Gemini and AI search recommend you.']];
+  const TOP=700,H=118,G=16,mid=i=>TOP+i*(H+G)+H/2;
+  items.forEach((it,i)=>{
+    const e=el('div','card abs',`<div style="font:500 34px Karla;margin-bottom:6px">${it[0]}</div><div style="font:300 25px/1.25 Karla;color:var(--slate)">${it[1]}</div>`,{left:'90px',top:TOP+i*(H+G)+'px',width:'600px',height:H+'px',padding:'16px 30px',display:'flex',flexDirection:'column',justifyContent:'center'},S.el);
+    S.fade(e,a(.8+i*.55),{d:.4,rise:16})});
+  const bx=735, oy=(mid(0)+mid(3))/2;
+  const stubs=[0,1,2,3].map(i=>line(692,mid(i),bx,mid(i),3));
+  doodle(S,{x:0,y:0,w:1080,h:1920,rot:0,at:a(3.2),dur:.8,stag:.12,groups:[stubs,[line(bx,mid(0),bx,mid(3),4)],[line(bx,oy,800,oy,0),line(786,oy-14,802,oy,0),line(786,oy+14,802,oy,0)]]});
+  const out=el('div','card abs',`<div style="font:500 32px/1.15 Karla;margin-bottom:10px">Found<br>first</div><div style="font:300 24px/1.25 Karla;color:var(--slate)">More calls. More new patients.</div>`,{left:'812px',top:oy-140+'px',width:'190px',height:'280px',padding:'22px 20px',borderColor:'var(--ink)'},S.el);
+  S.fade(out,a(4.4),{d:.5,rise:14});
+  S.label('we run all four · you run the clinic',a(5.2),{top:'1250px'});
+  S.cap('Ads, profile, search, AI — <b>all managed.</b>',a(1.0));
+}
+function sceneFound(S,o){
+  S.hl('So you start<br>showing up <em>higher.</em>',.2,{size:56,top:440});
   const rows=[['1','Westside Dental',4.8,212],['2','Bloor Family Dental',4.7,186],['3','Lakeview Dental',4.6,143],['4','Parkdale Dental',4.5,98]];
   const TOP=700,H=96,GAP=16,slot=i=>TOP+i*(H+GAP);
   const mkRow=(n,name,r,rv,at)=>{
@@ -195,8 +212,8 @@ function sceneFound(S,o){
     you.querySelector('.n').style.color='inherit';
     bar.style.opacity=q; you.style.borderColor=`rgba(111,168,126,${q})`;
   });
-  S.label('Google profile · local SEO · paid ads',2.2,{top:'1290px'});
-  S.cap('We fix what Google <b>sees.</b>',1.0);
+  
+  S.cap('Better ranking. <b>More clicks.</b>',1.0);
 }
 function sceneCaptured(S,o){
   S.hl('Then somebody<br>has to <em>answer.</em>',.2,{size:56,top:440});
@@ -394,10 +411,11 @@ function sceneMid(S,o){
 /* ============ timelines ============ */
 ringBuild();
 if(MODE==='75'){
-  const T={s1:0,s2:8,s3:15,s4:22,s5:30,s6:37,s7:45,s8:52,s9:61,s10:69,end:75};
-  window.DUR=75;
+  const T={s1:0,s2:8,s2b:16,s3:23,s4:30,s5:38,s6:45,s7:53,s8:60,s9:69,s10:77,end:83};
+  window.DUR=83;
   mk(T.s1,T.s2,'trigger',sceneTrigger);
-  mk(T.s2,T.s3,'found',sceneFound);
+  mk(T.s2,T.s2b,'traffic',sceneTraffic);
+  mk(T.s2b,T.s3,'found',sceneFound);
   mk(T.s3,T.s4,'captured',sceneCaptured);
   mk(T.s4,T.s5,'nurtured',sceneNurtured);
   mk(T.s5,T.s6,'booked',sceneBooked);
@@ -412,7 +430,7 @@ if(MODE==='75'){
   // 35s cutdown: 6 + 6 + 8 + 8 + 4 + 3
   window.DUR=35;
   mk(0,6,'trigger',sceneTrigger);
-  mk(6,12,'found',sceneFound);
+  mk(6,12,'traffic',sceneTraffic,{k:.62});
   mk(12,20,'mid',sceneMid);
   mk(20,28,'recalled',sceneRecalled,{b3:3});
   mk(28,32,'loop',sceneLoop,{short:true});
